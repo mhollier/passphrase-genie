@@ -1,0 +1,91 @@
+.app-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 2rem;
+    background-color: #3a4a59;
+    color: white;
+}
+
+h1 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 2rem;
+}
+
+.output-panel {
+    margin: 1rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+// input {
+//     flex: 1;
+//     padding: 0.5rem;
+//     font-size: 1rem;
+// }
+
+.buttons-row {
+    margin-top: 0;
+    padding-top: 5;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #286090;
+    color: white;
+    cursor: pointer;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+    height: 2em;
+    align-items: center;
+    padding: 5px;
+    border-bottom-width: 0.5px;
+    border-bottom-color: #72787E;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #41474D;
+}
+
+.controls {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.options-words-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+// label {
+//     display: flex;
+//     align-items: center;
+//     gap: 0.5rem;
+// }
+
+.logo-icon {
+    width: 85px;
+    height: 85px;
+    color: white;
+}
