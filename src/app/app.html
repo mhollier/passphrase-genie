@@ -1,44 +1,46 @@
 <div class="app-container">
-  <h1>Passphrase Genie</h1>
+  <div class="app-title">{{title}}</div>
   <div class="output-panel">
-    <input [(ngModel)]="passphrase" readonly />
-    <button (click)="copy()">Copy</button>
-    <button (click)="regenerate()">Regenerate</button>
+    <div class="passphrase">{{passphrase}}</div>
+    <div class="buttons-row">
+      <button matButton="filled" (click)="copy()"><mat-icon>content_copy</mat-icon>Copy</button>
+      <button matButton="filled" (click)="regenerate()"><mat-icon>refresh</mat-icon>Regenerate</button>
+    </div>
   </div>
 
   <div class="output-panel options-container">
     <div class="option">
       <label>Words</label>
       <div class="options-words-control">
-          <button (click)="changeWordCount(-1)">-</button>
-          <div>{{ wordCount }}</div>
-          <button (click)="changeWordCount(1)">+</button>
+          <button matIconButton (click)="changeWordCount(-1)"><mat-icon>remove</mat-icon></button>
+          <div>{{ wordCount}}</div>
+          <button matIconButton (click)="changeWordCount(1)"><mat-icon>add</mat-icon></button>
       </div>
     </div>
     
     <div class="option">
       <label for="addNumber">Add a number</label>
-      <input id="addNumber" type="checkbox" [(ngModel)]="addNumber" />
+      <mat-slide-toggle id="addNumber" [(ngModel)]="addNumber" />
     </div>
 
     <div class="option">
       <label for="addSpecialChar">Add a special character</label>
-      <input id="addSpecialChar" type="checkbox" [(ngModel)]="addSpecialChar" />
+      <mat-slide-toggle id="addSpecialChar" [(ngModel)]="addSpecialChar" />
     </div>
 
     <div class="option">
       <label for="capitalizeFirst">Capitalize first word</label>
-      <input id="capitalizeFirst" type="checkbox" [(ngModel)]="capitalizeFirst" />
+      <mat-slide-toggle id="capitalizeFirst" [(ngModel)]="capitalizeFirst" />
     </div>
  
     <div class="option">
       <label for="useSeparator">Use Separator</label>
-      <input id="useSeparator" type="checkbox" [(ngModel)]="useSeparator" />
+      <mat-slide-toggle id="useSeparator" [(ngModel)]="useSeparator" />
     </div>
  
   </div>
 
   <div>
-    <img src="genie-lamp-white.png" class="logo-icon">
+    <img src="images/genie-lamp.png" class="logo-icon">
   </div>
 </div>

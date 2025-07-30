@@ -2,64 +2,51 @@
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 2rem;
-    background-color: #3a4a59;
-    color: white;
+    max-width: 600px;
+    margin: auto;
 }
 
-h1 {
-    font-family: 'Cursive', sans-serif;
+.app-title {
+    font-family: 'KetupatRamadhan', sans-serif;
     font-size: 2rem;
+    padding: 10px;
+}
+
+.passphrase {
+    border-radius: 8px;
+    border: solid;
+    border-width: 0.5px;
+    padding: 0.25em;
 }
 
 .output-panel {
     margin: 1rem auto;
     padding: 1rem;
-    background: white;
+    background: var(--mat-sys-primary-container);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    align-items: center;
+    color: var(--mat-sys-on-primary-container)
 }
-
-// input {
-//     flex: 1;
-//     padding: 0.5rem;
-//     font-size: 1rem;
-// }
 
 .buttons-row {
+    display: flex;
     margin-top: 0;
-    padding-top: 5;
+    padding-top: 5px;
     flex-direction: row;
     justify-content: space-between;
-}
-
-button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #286090;
-    color: white;
-    cursor: pointer;
-}
-
-.options-container {
-    display: flex;
-    flex-direction: column;
 }
 
 .option {
     display: flex;
     flex-direction: row;
-    height: 2em;
+    height: 1.5em;
     align-items: center;
     padding: 5px;
     border-bottom-width: 0.5px;
-    border-bottom-color: #72787E;
     flex-direction: row;
     justify-content: space-between;
-    color: #41474D;
 }
 
 .controls {
@@ -78,14 +65,6 @@ button {
     gap: 10px;
 }
 
-// label {
-//     display: flex;
-//     align-items: center;
-//     gap: 0.5rem;
-// }
-
 .logo-icon {
-    width: 85px;
-    height: 85px;
-    color: white;
+    width: 75px;
 }
