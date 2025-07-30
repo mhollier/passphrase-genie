@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { generatePassphrase } from './generatePassphrase';
+import { OptionsService } from './services';
 
 @Component({
   selector: 'app-root',
@@ -16,38 +16,42 @@ import { generatePassphrase } from './generatePassphrase';
 })
 export class App {
   readonly title = 'Passphrase Genie';
-  wordCount = 5;
-  addNumber = false;
-  addSpecialChar = false;
-  capitalizeFirst = false;
-  useSeparator = true;
+  
+  public get wordCount() {
+    return this._optionsService.wordCount;
+  }
+ 
+  public get addNumber() {
+    return this._optionsService.addNumber;
+  }
 
-  passphrase = this.generatePassphrase();
+  public get addSpecialChar() {
+    return this._optionsService.addSpecialChar;
+  }
+
+  public get capitalizeFirst() {
+    return this._optionsService.capitalizeFirst;
+  }
+
+  public get useSeparator() {
+    return this._optionsService.useSeparator;
+  }
+
+  public get passphraseResult() {
+    return this._optionsService.passphraseResult;
+  }
+
+  public constructor(private _optionsService: OptionsService) {}
 
   changeWordCount(delta: number) {
-    this.wordCount = Math.max(1, this.wordCount + delta);
-    this.regenerate();
+    this._optionsService.changeWordCount(delta);
   }
 
   regenerate() {
-    this.passphrase = this.generatePassphrase();
-  }
-
-  generatePassphrase(): string {
-    return generatePassphrase({
-        numberWords: this.wordCount,
-        useSeparatorCharacter: this.useSeparator,
-        appendNumber: this.addNumber,
-        appendSpecialCharacter: this.addSpecialChar,
-        capitalizeFirstWord: this.capitalizeFirst,
-    }).passphrase;
+    this._optionsService.regenerate();
   }
 
   copy() {
-    navigator.clipboard.writeText(this.passphrase);
-  }
-
-  capitalize(word: string) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+    this._optionsService.copyToClipboard();
   }
 }

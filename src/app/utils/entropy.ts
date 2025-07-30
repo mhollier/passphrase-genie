@@ -1,4 +1,4 @@
-import { specialCharacters } from './models';
+import { specialCharacters } from '../models';
 
 const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" + specialCharacters;
 const charsetLength = charset.length;

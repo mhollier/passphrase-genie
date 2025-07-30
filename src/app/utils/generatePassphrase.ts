@@ -1,4 +1,4 @@
-import { IPassphraseOptions, IPassphraseResult } from './models';
+import { IPassphraseOptions, IPassphraseResult } from '../models';
 import { dicewareWordDictionary } from './dicewareWordDictionary';
 import { calculateEntropy, calculateScore, getScoreText } from './entropy';
 
