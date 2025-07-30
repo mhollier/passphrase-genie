@@ -14,6 +14,14 @@
 }
 
 html {
+  // @include mat.theme((
+  //   color: (
+  //     primary: mat.$azure-palette,
+  //     tertiary: mat.$blue-palette,
+  //   ),
+  //   typography: Roboto,
+  //   density: 0,
+  // ));
   @include mat.theme((
     color: (
       primary: mat.$azure-palette,
@@ -21,6 +29,18 @@ html {
     ),
     typography: Roboto,
     density: 0,
+  ));
+
+   @include mat.theme-overrides((
+    // primary: #266489,
+    // on-primary: #ffffff,
+    // primary-container: #c9e6ff,
+    // on-primary-container: #001e2f,
+    // primary-container: #50606e,
+    // on-primary-container: #ffffff,
+    // body-medium: 500 1.15rem/1.3rem Arial,
+    // corner-large: 32px,
+    // level3: 0 4px 6px 1px var(--mat-sys-surface-dim),
   ));
 
   // Default the application to a light color theme. This can be changed to
@@ -38,3 +58,4 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

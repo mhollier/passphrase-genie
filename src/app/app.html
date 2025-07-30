@@ -1,6 +1,6 @@
 <div class="app-container">
   <div class="app-title">{{title}}</div>
-  <div class="output-panel">
+  <div class="app-panel">
     <div class="passphrase">{{passphraseResult().passphrase}}</div>
     <div class="meter-panel">
       <div class="meter-segment" [style.background-color]="meterSegmentColor(0, passphraseResult().score)"></div>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="output-panel options-container">
+  <div class="app-panel options-container">
     <div class="option">
       <label>Words</label>
       <div class="options-words-control">
@@ -50,6 +50,6 @@
   </div>
 
   <div>
-    <img src="images/genie-lamp.png" class="logo-icon">
+    <img src="images/genie-lamp.svg" class="logo-icon">
   </div>
 </div>
