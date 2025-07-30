@@ -2,6 +2,15 @@
   <div class="app-title">{{title}}</div>
   <div class="output-panel">
     <div class="passphrase">{{passphraseResult().passphrase}}</div>
+    <div class="meter-panel">
+      <div class="meter-segment" [style.background-color]="meterSegmentColor(0, passphraseResult().score)"></div>
+      <div class="meter-segment" [style.background-color]="meterSegmentColor(1, passphraseResult().score)"></div>
+      <div class="meter-segment" [style.background-color]="meterSegmentColor(2, passphraseResult().score)"></div>
+      <div class="meter-segment" [style.background-color]="meterSegmentColor(3, passphraseResult().score)"></div>
+    </div>
+    <div class="passphrase-stats-row">
+        <div class="passphrase-stats-text">{{passphraseResult().scoreText}}</div>
+    </div>
     <div class="buttons-row">
       <button matButton="filled" (click)="copy()"><mat-icon>content_copy</mat-icon>Copy</button>
       <button matButton="filled" (click)="regenerate()"><mat-icon>refresh</mat-icon>Regenerate</button>

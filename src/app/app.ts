@@ -6,6 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OptionsService } from './services';
+import Colors from './colors';
 
 @Component({
   selector: 'app-root',
@@ -53,5 +54,22 @@ export class App {
 
   copy() {
     this._optionsService.copyToClipboard();
+  }
+
+  meterSegmentColor(level: number, score: number) {
+    if (score < level) {
+        return Colors.surfaceBright;
+    }
+
+    switch (score) {
+        case 3:
+            return 'green';
+        case 2:
+            return 'darkseagreen';
+        case 1:
+            return '#F5DF4D';
+        default:
+            return 'red';
+    }
   }
 }
