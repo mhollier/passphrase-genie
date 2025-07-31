@@ -1,5 +1,6 @@
 <div class="app-container">
   <div class="app-title">{{title}}</div>
+
   <div class="app-panel">
     <div class="passphrase">{{passphraseResult().passphrase}}</div>
     <div class="meter-panel">
@@ -9,24 +10,25 @@
       <div class="meter-segment" [style.background-color]="meterSegmentColor(3, passphraseResult().score)"></div>
     </div>
     <div class="passphrase-stats-row">
-        <div class="passphrase-stats-text">{{passphraseResult().scoreText}}</div>
+      <div class="passphrase-stats-text">{{passphraseResult().scoreText}}</div>
     </div>
     <div class="buttons-row">
-      <button matButton="filled" (click)="copy()"><mat-icon>content_copy</mat-icon>Copy</button>
+      <button matButton="filled" (click)="copyToClipboard()"><mat-icon>content_copy</mat-icon>Copy</button>
       <button matButton="filled" (click)="regenerate()"><mat-icon>refresh</mat-icon>Regenerate</button>
     </div>
   </div>
 
+  <!-- Options -->
   <div class="app-panel options-container">
     <div class="option">
       <label>Words</label>
       <div class="options-words-control">
-          <button matIconButton (click)="changeWordCount(-1)"><mat-icon>remove</mat-icon></button>
-          <div>{{ wordCount() }}</div>
-          <button matIconButton (click)="changeWordCount(1)"><mat-icon>add</mat-icon></button>
+        <button matIconButton (click)="decrementWordCount()"><mat-icon>remove</mat-icon></button>
+        <div>{{ wordCount() }}</div>
+        <button matIconButton (click)="incrementWordCount()"><mat-icon>add</mat-icon></button>
       </div>
     </div>
-    
+
     <div class="option">
       <label for="addNumber">Add a number</label>
       <mat-slide-toggle id="addNumber" [ngModel]="addNumber()" (change)="addNumber.set($event.checked)" />
@@ -34,19 +36,21 @@
 
     <div class="option">
       <label for="addSpecialChar">Add a special character</label>
-      <mat-slide-toggle id="addSpecialChar" [ngModel]="addSpecialChar()" (change)="addSpecialChar.set($event.checked)" />
+      <mat-slide-toggle id="addSpecialChar" [ngModel]="addSpecialChar()"
+        (change)="addSpecialChar.set($event.checked)" />
     </div>
 
     <div class="option">
       <label for="capitalizeFirst">Capitalize first word</label>
-      <mat-slide-toggle id="capitalizeFirst" [ngModel]="capitalizeFirst()" (change)="capitalizeFirst.set($event.checked)" />
+      <mat-slide-toggle id="capitalizeFirst" [ngModel]="capitalizeFirst()"
+        (change)="capitalizeFirst.set($event.checked)" />
     </div>
- 
+
     <div class="option">
       <label for="useSeparator">Use Separator</label>
       <mat-slide-toggle id="useSeparator" [ngModel]="useSeparator()" (change)="useSeparator.set($event.checked)" />
     </div>
- 
+
   </div>
 
   <div>

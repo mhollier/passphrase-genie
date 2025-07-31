@@ -1,94 +1,94 @@
 .app-container {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 1rem;
-    max-width: 800px;
-    margin: auto;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
 }
 
 .app-title {
-    font-family: 'KetupatRamadhan', sans-serif;
-    font-size: 2.5rem;
-    padding: 10px;
-    color: var(--mat-sys-primary);
-    margin-top: 2rem;
+  font-family: 'KetupatRamadhan', sans-serif;
+  font-size: 2.5rem;
+  padding: 10px;
+  color: var(--mat-sys-primary);
+  margin-top: 2rem;
 }
 
 .passphrase {
-    border-radius: 8px;
-    border: solid;
-    border-width: 0.5px;
-    padding: 0.25em;
-    font-size: 1.25em;
+  border-radius: 8px;
+  border: solid;
+  border-width: 0.5px;
+  padding: 0.25em;
+  font-size: 1.25em;
 }
 
 .app-panel {
-    margin: 1rem auto;
-    padding: 1rem;
-    background: var(--mat-sys-primary-container);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: var(--mat-sys-on-primary-container)
+  margin: 1rem auto;
+  padding: 1rem;
+  background: var(--mat-sys-primary-container);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--mat-sys-on-primary-container)
 }
 
 .buttons-row {
-    display: flex;
-    margin-top: 0;
-    padding-top: 5px;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  margin-top: 0;
+  padding-top: 5px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .passphrase-stats-row {
-    display: flex;
-    margin-top: 0;
-    padding: 5px;
-    padding-top: 0;
-    margin-bottom: 5px;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  margin-top: 0;
+  padding: 5px;
+  padding-top: 0;
+  margin-bottom: 5px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .meter-panel {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    
-    .meter-segment {
-        min-height: 0.5em;
-        flex-grow: 1;
-    }
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+
+  .meter-segment {
+    min-height: 0.5em;
+    flex-grow: 1;
+  }
 }
 
 .option {
-    display: flex;
-    flex-direction: row;
-    height: 1.5em;
-    align-items: center;
-    padding: 5px;
-    border-bottom-width: 0.5px;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  height: 1.5em;
+  align-items: center;
+  padding: 5px;
+  border-bottom-width: 0.5px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .controls {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
 }
 
 .options-words-control {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo-icon {
-    width: 75px;
+  width: 75px;
 }

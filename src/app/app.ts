@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, linkedSignal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { OptionsService } from './services';
-import Colors from './colors';
+import { OptionsService, PassphraseService } from './services';
+import { IPassphraseResult } from './models';
 
 @Component({
   selector: 'app-root',
@@ -16,60 +16,78 @@ import Colors from './colors';
   styleUrl: './app.scss'
 })
 export class App {
-  readonly title = 'Passphrase Genie';
-  
-  public get wordCount() {
-    return this._optionsService.wordCount;
-  }
- 
-  public get addNumber() {
-    return this._optionsService.addNumber;
-  }
+  public readonly title = 'Passphrase Genie';
 
-  public get addSpecialChar() {
-    return this._optionsService.addSpecialChar;
+  public constructor(
+    private optionsService: OptionsService,
+    private passphraseService: PassphraseService
+  ) { }
+
+  public get wordCount(): WritableSignal<number> {
+    return this.optionsService.wordCount;
   }
 
-  public get capitalizeFirst() {
-    return this._optionsService.capitalizeFirst;
+  public get addNumber(): WritableSignal<boolean> {
+    return this.optionsService.addNumber;
   }
 
-  public get useSeparator() {
-    return this._optionsService.useSeparator;
+  public get addSpecialChar(): WritableSignal<boolean> {
+    return this.optionsService.addSpecialChar;
   }
 
-  public get passphraseResult() {
-    return this._optionsService.passphraseResult;
+  public get capitalizeFirst(): WritableSignal<boolean> {
+    return this.optionsService.capitalizeFirst;
   }
 
-  public constructor(private _optionsService: OptionsService) {}
-
-  changeWordCount(delta: number) {
-    this._optionsService.changeWordCount(delta);
+  public get useSeparator(): WritableSignal<boolean> {
+    return this.optionsService.useSeparator;
   }
 
-  regenerate() {
-    this._optionsService.regenerate();
+  public readonly passphraseResult: WritableSignal<IPassphraseResult> = linkedSignal(() =>
+    this.passphraseService.generatePassphrase({
+      numberWords: this.wordCount(),
+      useSeparatorCharacter: this.useSeparator(),
+      appendNumber: this.addNumber(),
+      appendSpecialCharacter: this.addSpecialChar(),
+      capitalizeFirstWord: this.capitalizeFirst(),
+    }));
+
+  public regenerate(): void {
+    this.passphraseResult.set(this.passphraseService.generatePassphrase({
+      numberWords: this.wordCount(),
+      useSeparatorCharacter: this.useSeparator(),
+      appendNumber: this.addNumber(),
+      appendSpecialCharacter: this.addSpecialChar(),
+      capitalizeFirstWord: this.capitalizeFirst(),
+    }));
   }
 
-  copy() {
-    this._optionsService.copyToClipboard();
+  public decrementWordCount(): void {
+    this.optionsService.decrementWordCount();
   }
 
-  meterSegmentColor(level: number, score: number) {
+  public incrementWordCount(): void {
+    this.optionsService.incrementWordCount();
+  }
+
+  public copyToClipboard(): void {
+    navigator.clipboard.writeText(this.passphraseResult().passphrase);
+  }
+
+  public meterSegmentColor(level: number, score: number): string {
     if (score < level) {
-        return Colors.surfaceBright;
+      return 'transparent';
     }
 
     switch (score) {
-        case 3:
-            return 'green';
-        case 2:
-            return 'darkseagreen';
-        case 1:
-            return '#F5DF4D';
-        default:
-            return 'red';
+      case 3:
+        return 'green';
+      case 2:
+        return 'darkseagreen';
+      case 1:
+        return '#F5DF4D';
+      default:
+        return 'red';
     }
   }
 }

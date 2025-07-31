@@ -1,4 +1,15 @@
-export const dicewareWordDictionary = JSON.parse(`{
+import { Injectable } from "@angular/core";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DicewareDictionaryService {
+  public getDictionary(): Record<string, string> {
+    return dicewareWordDictionary;
+  }
+}
+
+const dicewareWordDictionary: Record<string, string> = JSON.parse(`{
     "11111":"abacus",
     "11112":"abdomen",
     "11113":"abdominal",
