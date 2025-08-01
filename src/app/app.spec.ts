@@ -1,6 +1,7 @@
 import { App } from './app';
 import { OptionsService, PassphraseService } from './services';
 import { IPassphraseResult } from './models';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 // Simple WritableSignal mock
 function createSignal<T>(initial: T): any {
@@ -12,10 +13,14 @@ function createSignal<T>(initial: T): any {
 
 describe('App Component', () => {
   let component: App;
+
+  let clipboardServiceSpy: jasmine.SpyObj<Clipboard>;
   let optionsServiceSpy: jasmine.SpyObj<OptionsService>;
   let passphraseServiceSpy: jasmine.SpyObj<PassphraseService>;
 
   beforeEach(() => {
+    clipboardServiceSpy = jasmine.createSpyObj('Clipboard', ['copy']);
+
     // Mocks for signals
     optionsServiceSpy = jasmine.createSpyObj('OptionsService', [
       'decrementWordCount',
@@ -37,7 +42,7 @@ describe('App Component', () => {
     passphraseServiceSpy.generatePassphrase.and.returnValue(result);
 
     // Set up the component
-    component = new App(optionsServiceSpy, passphraseServiceSpy);
+    component = new App(clipboardServiceSpy, optionsServiceSpy, passphraseServiceSpy);
     // Patch passphraseResult signal
     component.passphraseResult.set = jasmine.createSpy('set');
   });
@@ -92,6 +97,12 @@ describe('App Component', () => {
     component.incrementWordCount();
     expect(optionsServiceSpy.incrementWordCount).toHaveBeenCalled();
   });
+
+  it('should call Clipboard copy', () => {
+    component.copyToClipboard();
+    expect(clipboardServiceSpy.copy).toHaveBeenCalled();
+  });
+
 
   describe('meterSegmentColor()', () => {
     it('returns "transparent" if score < level', () => {

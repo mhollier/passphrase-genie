@@ -7,10 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { OptionsService, PassphraseService } from './services';
 import { IPassphraseResult } from './models';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatSlideToggleModule],
+  imports: [CommonModule, ClipboardModule, FormsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatSlideToggleModule],
   standalone: true,
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -19,6 +21,7 @@ export class App {
   public readonly title = 'Passphrase Genie';
 
   public constructor(
+    private clipboard: Clipboard,
     private optionsService: OptionsService,
     private passphraseService: PassphraseService
   ) { }
@@ -71,7 +74,7 @@ export class App {
   }
 
   public copyToClipboard(): void {
-    navigator.clipboard.writeText(this.passphraseResult().passphrase);
+    this.clipboard.copy(this.passphraseResult().passphrase);
   }
 
   public meterSegmentColor(level: number, score: number): string {
