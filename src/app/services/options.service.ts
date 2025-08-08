@@ -4,7 +4,7 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
   providedIn: 'root'
 })
 export class OptionsService {
-  public readonly wordCount: WritableSignal<number> = signal<number>(5);
+  public readonly wordCount: WritableSignal<number> = signal<number>(3);
   public readonly addNumber: WritableSignal<boolean> = signal<boolean>(true);
   public readonly addSpecialChar: WritableSignal<boolean> = signal<boolean>(true);
   public readonly capitalizeFirst: WritableSignal<boolean> = signal<boolean>(true);

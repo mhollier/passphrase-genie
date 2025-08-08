@@ -9,10 +9,11 @@ import { OptionsService, PassphraseService } from './services';
 import { IPassphraseResult } from './models';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, ClipboardModule, FormsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatSlideToggleModule],
+  imports: [CommonModule, ClipboardModule, FormsModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatSlideToggleModule],
   standalone: true,
   templateUrl: './app.html',
   styleUrl: './app.scss'

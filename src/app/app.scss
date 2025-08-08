@@ -26,11 +26,11 @@
   margin: 1rem auto;
   padding: 1rem;
   background: var(--mat-sys-primary-container);
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: var(--mat-sys-on-primary-container)
+  // color: var(--mat-sys-on-primary-container)
+  // box-shadow: var(--mat-sys-level2);
 }
 
 .buttons-row {

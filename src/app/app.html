@@ -1,25 +1,25 @@
 <div class="app-container">
   <div class="app-title">{{title}}</div>
 
-  <div class="app-panel">
-    <div class="passphrase">{{passphraseResult().passphrase}}</div>
-    <div class="meter-panel">
-      <div class="meter-segment" [style.background-color]="meterSegmentColor(0, passphraseResult().score)"></div>
-      <div class="meter-segment" [style.background-color]="meterSegmentColor(1, passphraseResult().score)"></div>
-      <div class="meter-segment" [style.background-color]="meterSegmentColor(2, passphraseResult().score)"></div>
-      <div class="meter-segment" [style.background-color]="meterSegmentColor(3, passphraseResult().score)"></div>
-    </div>
-    <div class="passphrase-stats-row">
-      <div class="passphrase-stats-text">{{passphraseResult().scoreText}}</div>
-    </div>
-    <div class="buttons-row">
-      <button matButton="filled" (click)="copyToClipboard()"><mat-icon>content_copy</mat-icon>Copy</button>
-      <button matButton="filled" (click)="regenerate()"><mat-icon>refresh</mat-icon>Regenerate</button>
-    </div>
-  </div>
+  <mat-card  class="app-panel">
+      <div class="passphrase">{{passphraseResult().passphrase}}</div>
+      <div class="meter-panel">
+        <div class="meter-segment" [style.background-color]="meterSegmentColor(0, passphraseResult().score)"></div>
+        <div class="meter-segment" [style.background-color]="meterSegmentColor(1, passphraseResult().score)"></div>
+        <div class="meter-segment" [style.background-color]="meterSegmentColor(2, passphraseResult().score)"></div>
+        <div class="meter-segment" [style.background-color]="meterSegmentColor(3, passphraseResult().score)"></div>
+      </div>
+      <div class="passphrase-stats-row">
+        <div class="passphrase-stats-text">{{passphraseResult().scoreText}}</div>
+      </div>
+      <div class="buttons-row">
+        <button matButton="filled" (click)="copyToClipboard()"><mat-icon>content_copy</mat-icon>Copy</button>
+        <button matButton="filled" (click)="regenerate()"><mat-icon>refresh</mat-icon>Regenerate</button>
+      </div>
+  </mat-card>
 
   <!-- Options -->
-  <div class="app-panel options-container">
+  <mat-card class="app-panel options-container">
     <div class="option">
       <label>Words</label>
       <div class="options-words-control">
@@ -51,7 +51,7 @@
       <mat-slide-toggle id="useSeparator" [ngModel]="useSeparator()" (change)="useSeparator.set($event.checked)" />
     </div>
 
-  </div>
+  </mat-card>
 
   <div>
     <img src="images/genie-lamp.svg" class="logo-icon">
